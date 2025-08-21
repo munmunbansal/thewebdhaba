@@ -1,0 +1,55 @@
+.flame-loader {
+  background-color: #000;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fire {
+  position: relative;
+  width: 40px;
+  height: 80px;
+}
+
+.flame {
+  position: absolute;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, orange 20%, red 70%, transparent 80%);
+  border-radius: 50%;
+  animation: flame 1s infinite ease-in-out alternate;
+}
+
+.flame:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.flame:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.flame:nth-child(4) {
+  animation-delay: 0.6s;
+}
+.flame:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+@keyframes flame {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-40px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.loader-text {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-top: 30px;
+  font-family: 'Courier New', Courier, monospace;
+}

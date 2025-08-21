@@ -1,0 +1,132 @@
+body {
+  background-image: url('/bg.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+
+.home-wrapper {
+    height: 100vh;
+    /* background: url('/bg.jpeg') no-repeat center center/cover; */
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+/*   
+  .rotating-table {
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: 	#2c0825; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+
+    position: relative;
+    animation: spin 15s linear infinite;
+    margin-left: 80px;
+    border: 6px solid #f1f1f1;
+
+
+
+  } */
+  
+  /* .plate {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    width: 190px;
+    height: 190px;
+    background: rgb(142, 113, 113);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 80px;
+    transform-origin: center;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  } */
+
+  .rotating-table {
+    width: 600px; /* Table diameter */
+    height: 600px;
+    border-radius: 50%;
+    background: #2c0825;
+    position: relative;
+    animation: spin 15s linear infinite;
+    margin-left: 80px;
+    border: 6px solid #f1f1f1;
+  }
+  
+  .plate {
+    position: absolute;
+    width: 190px; /* Plate diameter */
+    height: 190px;
+    background: rgb(142, 113, 113);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  
+    top: 50%;
+    left: 50%;
+    transform-origin: center center;
+  }
+  
+  /* Number of plates: 3 → 360 / 3 = 120° apart */
+  .plate:nth-child(1) {
+    transform: rotate(0deg) translate(205px) rotate(0deg);
+  }
+  
+  .plate:nth-child(2) {
+    transform: rotate(120deg) translate(205px) rotate(-120deg);
+  }
+  
+  .plate:nth-child(3) {
+    transform: rotate(240deg) translate(205px) rotate(-240deg);
+  }
+  
+  
+
+  .order-button {
+    margin-right: 100px;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    background-color: #c47339;
+    color: rgb(200, 137, 137);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .waiter-entry {
+    position: absolute;
+    right: -200px;
+    bottom: 50px;
+    animation: slideIn 2s forwards;
+  }
+  
+  .waiter {
+    width: 700px;
+  }
+  
+  @keyframes slideIn {
+    to {
+      right: 100px;
+    }
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  
