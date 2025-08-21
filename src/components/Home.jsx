@@ -42,7 +42,7 @@ const Home = () => {
         </div>
       )}
 
-      <button className="order-button" onClick={handleOrder}>Order</button>
+      <button className="order-button" onClick={handleOrder}>Tap me to order</button>
     </div>
   );
 };
