@@ -1,0 +1,347 @@
+body {
+   
+  background-image: url('/bg.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+
+.home-wrapper {
+    height: 100vh;
+    
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+ 
+  }
+/*   
+  .rotating-table {
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: 	#2c0825; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+
+    position: relative;
+    animation: spin 15s linear infinite;
+    margin-left: 80px;
+    border: 6px solid #f1f1f1;
+
+
+
+  } */
+  
+  /* .plate {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    width: 190px;
+    height: 190px;
+    background: rgb(142, 113, 113);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 80px;
+    transform-origin: center;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  } */
+
+  .rotating-table {
+    width: 600px; 
+    height: 600px;
+    border-radius: 50%;
+    background: #2c0825;
+    position: relative;
+    animation: spin 15s linear infinite;
+    margin-left: 80px;
+    border: 6px solid #f1f1f1;
+  }
+  
+  .plate {
+    position: absolute;
+    width: 190px; /* Plate diameter */
+    height: 190px;
+    background: rgb(142, 113, 113);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  
+    top: 50%;
+    left: 50%;
+    transform-origin: center center;
+  }
+  
+  /* Number of plates: 3 → 360 / 3 = 120° apart */
+  .plate:nth-child(1) {
+    transform: rotate(0deg) translate(205px) rotate(0deg);
+  }
+  
+  .plate:nth-child(2) {
+    transform: rotate(120deg) translate(205px) rotate(-120deg);
+  }
+  
+  .plate:nth-child(3) {
+    transform: rotate(240deg) translate(205px) rotate(-240deg);
+  }
+  
+  
+
+  .order-button {
+    margin-right: 100px;
+    padding: 12px 30px;
+    font-size: 1.3rem;
+    background-color: #b45555;
+    color: rgb(251, 251, 251);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .waiter-entry {
+    position: absolute;
+    right: -200px;
+   
+    bottom: 0px;
+    animation: slideIn 2s forwards;
+  }
+  
+  .waiter {
+    width: 50px;
+    
+    height: auto;
+  }
+
+  
+.waiter-container {
+  position: relative;
+  display: inline-block;
+}
+
+.waiter {
+  cursor: pointer;
+  max-width: 750px; 
+}
+  
+  @keyframes slideIn {
+    to {
+      right: 100px;
+    }
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
+  /* Paper menu animation */
+  .paper-menu {
+    position: absolute;
+    top: 50%;          /* vertically aligned with waiter */
+    left: -450px; 
+    transform: translateY(-50%);
+    background: rgb(255, 255, 255);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-align: center;
+    width: 420px;  
+    height: 600px;                /* 🔥 change this for wider/narrower */
+    font-size: 18px; 
+  }
+
+  
+
+.paper-menu h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #b45555;
+}
+
+.paper-menu p {
+  font-size: 1.1rem;
+  margin: 4px 0;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+
+
+
+/* Steam styling */
+.steam {
+  position: absolute;
+  top: 45%;   /* adjust so it comes out of lid */
+  left: 25%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.steam span {
+  position: absolute;
+  bottom: 0;
+  width: 25px;
+  height: 25px;
+  background: rgba(248, 248, 248, 0.6);
+  border-radius: 50%;
+  filter: blur(10px);
+  animation: rise 3s infinite ease-in-out;
+}
+
+.steam span:nth-child(2) {
+  left: 30px;
+  animation-delay: 1s;
+}
+.steam span:nth-child(3) {
+  left: 60px;
+  animation-delay: 2s;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-50px) scale(1.3);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-100px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+
+
+.book-menu {
+  margin-left: -650px;
+  margin-top: -390px;
+
+  
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-family: 'Georgia', serif;
+  background: #fffbe6;
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+
+.page h2, .page h3 {
+  color: #b23c3c;
+  margin-bottom: 10px;
+}
+
+/* 🔹 Lid indicator */
+.lid-indicator {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #b23c3c;
+  font-weight: bold;
+  animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* 🔹 Flipbook header with spoon & fork */
+.book-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: #b23c3c;
+}
+
+/* 🔹 Menu items */
+.menu-item {
+  cursor: pointer;
+  margin: 6px 0;
+  transition: color 0.2s ease;
+}
+
+.menu-item:hover {
+  color: #b23c3c;
+}
+
+/* 🔹 Selected menu item */
+.menu-item.selected {
+  font-weight: bold;
+  color: #2c0825;
+}
+
+
+.bell-button {
+  position: absolute;
+  bottom: 540px;
+  left: -55%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle at 30% 30%, #ffdf85, #e0a800);
+  border: 3px solid #c28a00;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+.bell-button svg {
+  font-size: 36px;
+  color: #6b4600;
+  pointer-events: none;
+}
+
+
+.bell-button:hover {
+  transform: translateX(-50%) scale(1.1);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+.bell-button:active {
+  transform: translateX(-50%) scale(0.95);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}

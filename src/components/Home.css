@@ -1,132 +1,308 @@
+/* ✅ Background setup */
 body {
-  background-image: url('/bg.jpeg');
+  background-image: url('../assets/bg.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 
+/* ✅ Main layout wrapper */
+ .home-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 0px;
+} 
+ 
 
-.home-wrapper {
-    height: 100vh;
-    /* background: url('/bg.jpeg') no-repeat center center/cover; */
-    
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-  }
-/*   
-  .rotating-table {
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    background: 	#2c0825; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
-
-    position: relative;
-    animation: spin 15s linear infinite;
-    margin-left: 80px;
-    border: 6px solid #f1f1f1;
+/* ✅ Rotating table (shows on left) */
+.rotating-table {
+   width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: #2c0825;
+  animation: spin 15s linear infinite;
+  border: 6px solid #f1f1f1;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); 
+  /* z-index: 2; */
+  position: relative;
+  top: 0%;
+  left: 5%; /* keeps it on the left side */
+  transform: translate(-50%, -50%);
+  z-index: 2; /* make sure it stays visible */
+}
 
 
+ 
+.plate {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: rgb(142, 113, 113);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
 
-  } */
-  
-  /* .plate {
-    position: absolute;
-    top: 50%;
-    left: 60%;
-    width: 190px;
-    height: 190px;
-    background: rgb(142, 113, 113);
-    border-radius: 50%;
-    text-align: center;
-    line-height: 80px;
-    transform-origin: center;
-    font-weight: bold;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  } */
+/* Plates arranged in a circle */
+.plate:nth-child(1) {
+  transform: rotate(0deg) translate(170px) rotate(0deg);
+}
+.plate:nth-child(2) {
+  transform: rotate(120deg) translate(170px) rotate(-120deg);
+}
+.plate:nth-child(3) {
+  transform: rotate(240deg) translate(170px) rotate(-240deg);
+}
 
-  .rotating-table {
-    width: 600px; /* Table diameter */
-    height: 600px;
-    border-radius: 50%;
-    background: #2c0825;
-    position: relative;
-    animation: spin 15s linear infinite;
-    margin-left: 80px;
-    border: 6px solid #f1f1f1;
-  }
-  
-  .plate {
-    position: absolute;
-    width: 190px; /* Plate diameter */
-    height: 190px;
-    background: rgb(142, 113, 113);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  
-    top: 50%;
-    left: 50%;
-    transform-origin: center center;
-  }
-  
-  /* Number of plates: 3 → 360 / 3 = 120° apart */
-  .plate:nth-child(1) {
-    transform: rotate(0deg) translate(205px) rotate(0deg);
-  }
-  
-  .plate:nth-child(2) {
-    transform: rotate(120deg) translate(205px) rotate(-120deg);
-  }
-  
-  .plate:nth-child(3) {
-    transform: rotate(240deg) translate(205px) rotate(-240deg);
-  }
-  
-  
+/* ✅ Order button */
+.order-button {
+  padding: 12px 30px;
+  font-size: 1.3rem;
+  background-color: #b45555;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  position: absolute;
+  right: 500px;
+  bottom: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
 
-  .order-button {
-    margin-right: 100px;
-    padding: 12px 30px;
-    font-size: 1.3rem;
-    background-color: #b45555;
-    color: rgb(251, 251, 251);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+/* ✅ Waiter entry animation */
+.waiter-entry {
+  position: absolute;
+  /* bottom: 0px; */
+  right: -600px;
+  animation: slideIn 2s forwards;
+}
+
+@keyframes slideIn {
+  to {
+    right: 50px;
   }
-  
-  .waiter-entry {
-    position: absolute;
-    right: -200px;
-    bottom: 50px;
-    animation: slideIn 2s forwards;
-  }
-  
-  .waiter {
-    width: 700px;
-  }
-  
-  @keyframes slideIn {
-    to {
-      right: 100px;
-    }
-  }
-  
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
-  
+}
+
+/* ✅ Waiter image */
+/* .waiter-container {
+  position: relative;
+ top: 200px;
+  right: 50px;
+  display: inline-block;
+}
+
+.waiter {
+
+    width: 650px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+} */
+
+.waiter-container {
+  position: relative;
+  width: 650px;
+  top: 50px;
+  height: 950px;
+  overflow: hidden;
+}
+
+.waiter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.waiter-closed {
+  transform: translateY(0);
+  top: 65px;
+}
+
+.waiter-open {
+  transform: translateY(-10px); /* adjust to align perfectly */
+  top: 300px;
+}
+
+
+.waiter:hover {
+  transform: scale(1.09);
+}
+
+/* ✅ Steam animation */
+.steam {
+  position: absolute;
+  top: 38%;
+  left: 34%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.steam span {
+  position: absolute;
+  bottom: 0;
+  width: 25px;
+  height: 25px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  filter: blur(10px);
+  animation: rise 3s infinite ease-in-out;
+}
+
+.steam span:nth-child(2) {
+  left: 25px;
+  animation-delay: 1s;
+}
+.steam span:nth-child(3) {
+  left: 50px;
+  animation-delay: 2s;
+}
+
+@keyframes rise {
+  0% { transform: translateY(0) scale(1); opacity: 0.8; }
+  50% { transform: translateY(-60px) scale(1.3); opacity: 0.5; }
+  100% { transform: translateY(-120px) scale(1.5); opacity: 0; }
+}
+
+
+/* ✅ Menu book beside waiter */
+.book-menu {
+  margin-top: 20px;
+  bottom: 400px;
+  background: rgba(255, 255, 240, 0.8);
+  padding: 15px;
+  left: -700px;
+  border-radius: 20px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  position: relative;
+  animation: fadeIn 1.5s ease;
+}
+
+.book-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: #7a3e00;
+  font-family: "Georgia", serif;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Each Flipbook Page */
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fffbe6;
+  border: 2px solid #d9a45f;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1);
+  font-family: "Georgia", serif;
+  color: #4b2e05;
+}
+
+.page h2,
+.page h3 {
+  color: #b23c3c;
+  margin-bottom: 10px;
+  text-shadow: 0 1px 1px #fff5ee;
+}
+
+.menu-item {
+  cursor: pointer;
+  margin: 4px 0;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+  background: rgba(255, 208, 130, 0.4);
+  transform: scale(1.05);
+}
+
+/* Selected items have a glow effect */
+.menu-item.selected {
+  background: rgba(255, 188, 66, 0.3);
+  color: #b23c3c;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(255, 174, 66, 0.8);
+}
+
+/* ✅ Blink indicator */
+.lid-indicator {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #b23c3c;
+  font-weight: bold;
+  animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ✅ Bell button */
+.bell-button {
+  /* position: absolute; */
+  bottom: 300px;
+  left: -55%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle at 30% 30%, #ffdf85, #e0a800);
+  border: 3px solid #c28a00;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bell-button:hover {
+  transform: translateX(-50%) scale(1.1);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+.bell-button:active {
+  transform: translateX(-50%) scale(0.95);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* ✅ Rotation animation */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
